@@ -91,20 +91,10 @@ GEM
     guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
-    haml (4.1.0.beta.1)
+    haml (4.0.5)
       tilt
-    haml2slim (0.4.7)
-      haml (>= 3.0)
-      nokogiri
-      ruby_parser
     hike (1.2.3)
     hitimes (1.2.2)
-    hpricot (0.8.6)
-    html2haml (1.0.1)
-      erubis (~> 2.7.0)
-      haml (>= 4.0.0.rc.1)
-      hpricot (~> 0.8.6)
-      ruby_parser (~> 3.1.1)
     hub (1.12.2)
     i18n (0.6.11)
     interception (0.5)
@@ -169,8 +159,6 @@ GEM
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_apps_pages (0.5.15)
-    rails_apps_testing (0.3.11)
     rails_layout (1.0.22)
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
@@ -213,8 +201,6 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.1)
-    ruby_parser (3.1.3)
-      sexp_processor (~> 4.1)
     rubyzip (1.1.6)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -230,7 +216,6 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    sexp_processor (4.4.4)
     slim (2.0.3)
       temple (~> 0.6.6)
       tilt (>= 1.3.3, < 2.1)
@@ -296,8 +281,6 @@ DEPENDENCIES
   guard-bundler
   guard-rails
   guard-rspec
-  haml2slim
-  html2haml
   hub
   jbuilder (~> 2.0)
   jquery-rails
@@ -309,8 +292,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.0)
   rails_12factor
-  rails_apps_pages
-  rails_apps_testing
   rails_layout
   rb-fchange
   rb-fsevent

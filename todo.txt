@@ -1,0 +1,8 @@
+- Deploy to Ninefold
+
+- Migrate to create users
+  - Add total distance to user
+- Create run
+  - type, distance, season
+- Create season
+- Setup flatly

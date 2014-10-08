@@ -1,8 +1,11 @@
+
+
 - Deploy to Ninefold
 
 - Migrate to create users
   - Add total distance to user
-- Create run
-  - type, distance, season
+x Create run
+  x type, distance, season
 - Create season
+  - Admin can create season
 - Setup flatly

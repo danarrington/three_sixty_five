@@ -11,12 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007144731) do
+ActiveRecord::Schema.define(version: 20141008040520) do
 
   create_table "runs", force: true do |t|
     t.decimal  "distance"
     t.integer  "run_type"
     t.integer  "season_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seasons", force: true do |t|
+    t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

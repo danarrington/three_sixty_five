@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :run do
-    distance ""
+    distance 2.01
     run_type ""
     season_id 1
   end

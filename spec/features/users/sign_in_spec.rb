@@ -22,6 +22,7 @@ feature 'Sign in', :devise do
     user = FactoryGirl.create(:user)
     signin(user.email, user.password)
     expect(page).to have_content I18n.t 'devise.sessions.signed_in'
+    expect(current_path).to eq '/dashboard'
   end
 
   # Scenario: User cannot sign in with wrong email

@@ -10,7 +10,7 @@ class RunsController < ApplicationController
     else
       return render text: 'whoops', status: 422
     end
-    render text: 'hi'
+    redirect_to user_root_path
   end
 
 

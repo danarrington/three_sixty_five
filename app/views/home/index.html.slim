@@ -17,6 +17,7 @@
     .col-xs-12.col-md-4.col-md-offset-4
       a.big-button.js-log-a-run href='#' Log a run
       span.collapse.js-submit-run-container
-        div style='padding:5px;'
-          input.form-control.input-lg.js-distance type='number' placeholder='distance'
-        a.big-button.js-submit-run href='#' Submit
+        =form_for @run do |f|
+          div style='padding:5px;'
+            =f.number_field :distance, class: 'form-control input-lg js-distance', step:0.01
+          =f.submit 'Submit', class:'big-button'

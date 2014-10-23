@@ -11,9 +11,8 @@ feature 'Logging Runs' do
       fill_in :run_distance, with: 3.2
       click_button 'Submit'
 
-
       user.reload
-      expect(user.total_distance).to eq 116.5
+      expect(user.total_distance).to eq 116.7
     end
   end
 end

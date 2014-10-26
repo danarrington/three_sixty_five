@@ -13,6 +13,8 @@ feature 'Logging Runs' do
 
       user.reload
       expect(user.total_distance).to eq 116.7
+      run = Run.last
+      expect(Run.runtypes[run.runtype]).to eq Run.runtypes[:run]
     end
   end
 end

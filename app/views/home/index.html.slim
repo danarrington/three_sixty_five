@@ -21,4 +21,6 @@
           =form_for @run do |f|
             div.distance-padding
               =f.number_field :distance, class: 'form-control input-lg js-distance distance', step:0.01
+            div.distance-padding
+              =f.select :runtype, Run.runtypes.keys.to_a, {}, {class: 'form-control'}
             =f.submit 'Submit', class:'big-button'

@@ -17,6 +17,6 @@ class RunsController < ApplicationController
   private
 
   def run_params
-    params.require(:run).permit(:id, :distance).merge(user_id: current_user.id)
+    params.require(:run).permit(:id, :distance, :runtype).merge(user_id: current_user.id)
   end
 end

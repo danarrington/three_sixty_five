@@ -10,7 +10,7 @@ describe RunsController do
       before {sign_in user}
 
       context 'with valid attributes' do
-        let(:attributes) {attributes_for(:run, distance: 2.34)}
+        let(:attributes) {attributes_for(:run, distance: 2.34, runtype: 'run')}
         it 'should save the run' do
           expect{
             post :create, run: attributes
@@ -27,6 +27,7 @@ describe RunsController do
           r = Run.last
           expect(r.distance).to eq 2.34
           expect(r.season).to eq season
+          expect(Run.runtypes[r.runtype]).to eq Run.runtypes[:run]
         end
 
         it 'should update the users total distance' do

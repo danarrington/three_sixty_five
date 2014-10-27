@@ -1,26 +1,26 @@
-.container
+.container.container-xs-height
   .run-data-container
-    .row
+    .row.row-cs-height
       .total-distance.col-xs-8.col-md-4.col-xs-offset-2.col-md-offset-4
-        h3 = @user.total_distance
+        h2 = @user.total_distance
         p mi. completed
     .row
-      .run-third-box.col-xs-4
+      .run-third-box.col-xs-4.col-xs-height
         h3 = @runs
         p runs
-      .run-third-box.col-xs-4
+      .run-third-box.col-xs-4.col-xs-height
         h3 = @needed_pace
-        p miles/day to complete
-      .run-third-box.col-xs-4
+        p miles/day needed
+      .run-third-box.col-xs-4.col-xs-height
         h3 = @day
         p day
     .row
       .col-xs-12.col-md-4.col-md-offset-4
-        a.big-button.js-log-a-run href='#' Log a run
+        a.btn.btn-lg.btn-block.btn-default.js-log-a-run href='#' Log a run
         span.collapse.js-submit-run-container
           =form_for @run do |f|
             div.distance-padding
               =f.number_field :distance, class: 'form-control input-lg js-distance distance', step:0.01
             div.distance-padding
               =f.select :runtype, Run.runtypes.keys.to_a, {}, {class: 'form-control'}
-            =f.submit 'Submit', class:'big-button'
+            =f.submit 'Submit', class:'btn btn-lg btn-block btn-default'

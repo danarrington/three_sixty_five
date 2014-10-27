@@ -14,21 +14,22 @@
  *= require_self
  */
 
-@import "bootswatch/superhero/variables";
-
+//@import "bootswatch/superhero/variables";
+@import 'bootswatch-variables';
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
-@import "bootswatch/superhero/bootswatch";
+@import 'bootswatch/superhero/bootswatch';
+@import 'column-height';
 
 .big-button {
   display:block;
   width:100%;
-  background-color: $brand-warning;
+  background-color: $brand-info;
   color: white;
   padding:10px;
   text-align:center;
   font-size:1.5em;
-  border: 1px solid $brand-warning;
+  border: 1px solid $brand-info;
   &:hover {
     background-color: darken($brand-warning, 15);
     color: #fff;

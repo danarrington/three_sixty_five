@@ -3,9 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //@import "bootstrap/variables";
 
-@import "bootswatch/superhero/variables";
+@import 'bootswatch-variables';
 
-.run-data-container {padding-top:20px;}
+.run-data-container {
+  padding-top:20px;
+  h3, h2 {font-weight: bolder;}
+}
 .total-distance {
   text-align:center; background-color: $brand-primary; color: #fff;
 }

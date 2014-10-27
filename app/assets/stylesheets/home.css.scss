@@ -1,7 +1,9 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "bootstrap/variables";
+//@import "bootstrap/variables";
+
+@import "bootswatch/superhero/variables";
 
 .run-data-container {padding-top:20px;}
 .total-distance {
@@ -9,7 +11,7 @@
 }
 .run-third-box {
   text-align:center; background-color: $brand-primary; color: #fff;
-  border:5px solid white;
+  border:5px solid $body-bg;
 }
 
 .distance-padding {padding:5px;}

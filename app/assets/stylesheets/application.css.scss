@@ -14,11 +14,11 @@
  *= require_self
  */
 
-@import "bootswatch/sandstone/variables";
+@import "bootswatch/superhero/variables";
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
-@import "bootswatch/sandstone/bootswatch";
+@import "bootswatch/superhero/bootswatch";
 
 .big-button {
   display:block;

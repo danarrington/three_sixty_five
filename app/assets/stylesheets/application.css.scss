@@ -14,12 +14,11 @@
  *= require_self
  */
 
-//@import "bootswatch/superhero/variables";
-@import 'bootswatch-variables';
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-@import 'bootswatch/superhero/bootswatch';
+@import 'bootstrap-all';
 @import 'column-height';
+
+.center-text {text-align: center;}
+.padding-15 {padding-top:15px;}
 
 .big-button {
   display:block;

@@ -13,4 +13,9 @@ feature 'Home page' do
     expect(page).to have_content 'Welcome'
   end
 
+  scenario 'visit dashboard' do
+    visit user_root_path
+    expect(page).to have_content 'You need to sign in or sign up before continuing'
+  end
+
 end

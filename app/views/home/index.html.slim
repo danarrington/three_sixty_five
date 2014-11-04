@@ -20,10 +20,18 @@
         span.collapse.js-submit-run-container
           =form_for @run do |f|
             div.distance-padding
-              =f.number_field :distance, class: 'form-control input-lg js-distance distance', step:0.01
+              = f.number_field :distance, class: 'form-control input-lg js-distance distance', step:0.01
             div.distance-padding
-              =f.select :runtype, Run.runtypes.keys.to_a, {}, {class: 'form-control'}
-            =f.submit 'Submit', class:'btn btn-lg btn-block btn-default'
+              = f.select :runtype, Run.runtypes.keys.to_a, {}, {class: 'form-control'}
+            = f.submit 'Submit', {class:'btn btn-lg btn-block btn-default'}
     .row
-      .col-xs-12.col-md-6
-        h3
+      .visible-xs-block.clearfix style='padding-top:20px;'
+    .row
+      .col-xs-12.col-md-6.dashboard-container
+        h4 Leaderboard
+        table
+          -@leaderboard.total_distance.each do |u|
+            tr
+              td=u[:name]
+              td=u[:total_distance]
+

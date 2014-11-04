@@ -5,6 +5,7 @@
 
 @import 'bootswatch-variables';
 
+
 .run-data-container {
   padding-top:20px;
   h3, h2 {font-weight: bolder;}
@@ -20,3 +21,7 @@
 .underlined {border-bottom:2px solid $btn-default-bg; padding-bottom:10px;}
 
 .distance-padding {padding:5px;}
+
+.dashboard-container {
+  background-color: lighten($body-bg, 3%)
+}

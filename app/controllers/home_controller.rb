@@ -10,7 +10,15 @@ class HomeController < ApplicationController
     @needed_pace = ((365 - @user.total_distance) / (365-@day)).round(1)
     @run = Run.new
 
-    @leaderboard = Leaderboard.new
+    @leaderboard = Leaderboard.new(:total)
+  end
+
+  def leaderboard
+    @leaderboard = Leaderboard.new(params[:type])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
 

@@ -27,11 +27,26 @@
     .row
       .visible-xs-block.clearfix style='padding-top:20px;'
     .row
-      .col-xs-12.col-md-6.dashboard-container
-        h4 Leaderboard
-        table
-          -@leaderboard.total_distance.each do |u|
-            tr
-              td=u[:name]
-              td=u[:total_distance]
+      .col-xs-12.col-md-6.dashboard-container.leaderboard
+        .top.clearfix
+          .pull-left
+            h4 Leaderboard
+          .pull-right
+            .btn-group
+              a.btn.btn-default.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#"
+                | Overall
+                span.caret
+              ul.dropdown-menu
+                li
+                  =link_to 'Running Only', leaderboard_path(type: :run), remote: true
+                li
+                  =link_to 'Walking Only', leaderboard_path(type: :walk), remote: true
+                li
+                  =link_to 'Biking Only', leaderboard_path(type: :bike), remote: true
+                li
+                  =link_to 'Swimming Only', leaderboard_path(type: :swim), remote: true
+                li
+                  =link_to 'Misc Only', leaderboard_path(type: :misc), remote: true
+        =render partial: 'leaderboard_results', locals: {leaderboard: @leaderboard}
+
 

@@ -25,3 +25,9 @@
 .dashboard-container {
   background-color: lighten($body-bg, 3%)
 }
+
+.leaderboard {
+  .name {display:inline-block; width:20%;}
+  .distance {display:inline;}
+}
+

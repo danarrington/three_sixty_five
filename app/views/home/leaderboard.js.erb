@@ -1,1 +1,2 @@
-$('.leaderboard-numbers').html("<%= escape_javascript(render partial: 'leaderboard_results', locals:{leaderboard:@leaderboard})%>");
+//$('.leaderboard .dropdown-toggle').dropdown('toggle');
+$('.leaderboard-results').html("<%= escape_javascript(render partial: 'leaderboard_results', locals:{leaderboard:@leaderboard})%>");

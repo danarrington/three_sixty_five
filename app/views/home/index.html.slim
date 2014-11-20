@@ -38,15 +38,16 @@
                 span.caret
               ul.dropdown-menu
                 li
-                  =link_to 'Running Only', leaderboard_path(type: :run), remote: true
+                  =link_to 'Running Only', leaderboard_path(type: :run), class: 'js-leaderboard-option', remote: true, 'data-type' => :run
                 li
-                  =link_to 'Walking Only', leaderboard_path(type: :walk), remote: true
+                  =link_to 'Walking Only', leaderboard_path(type: :walk), class: 'js-leaderboard-option', remote: true, 'data-type' => :walk
                 li
-                  =link_to 'Biking Only', leaderboard_path(type: :bike), remote: true
+                  =link_to 'Biking Only', leaderboard_path(type: :bike), class: 'js-leaderboard-option', remote: true, 'data-type' => :bike
                 li
-                  =link_to 'Swimming Only', leaderboard_path(type: :swim), remote: true
+                  =link_to 'Swimming Only', leaderboard_path(type: :swim), class: 'js-leaderboard-option', remote: true, 'data-type' => :swim
                 li
-                  =link_to 'Misc Only', leaderboard_path(type: :misc), remote: true
-        =render partial: 'leaderboard_results', locals: {leaderboard: @leaderboard}
+                  =link_to 'Misc Only', leaderboard_path(type: :misc), class: 'js-leaderboard-option', remote: true, 'data-type' => :misc
+        .leaderboard-results
+          =render partial: 'leaderboard_results', locals: {leaderboard: @leaderboard}
 
 

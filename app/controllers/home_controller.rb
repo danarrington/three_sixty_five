@@ -15,7 +15,6 @@ class HomeController < ApplicationController
 
   def leaderboard
     @leaderboard = Leaderboard.new(params[:type])
-    @selected = params[:type]
 
     respond_to do |format|
       format.js

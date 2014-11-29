@@ -14,7 +14,8 @@ class HomeController < ApplicationController
   end
 
   def leaderboard
-    @leaderboard = Leaderboard.new(params[:type])
+    page = params.has_key?(:page) ? params[:page].to_i : 1
+    @leaderboard = Leaderboard.new(params[:type], page)
 
     respond_to do |format|
       format.js

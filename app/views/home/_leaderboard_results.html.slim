@@ -2,3 +2,21 @@
   .leaderboard-row
     .name =u[:name]
     .distance =u[:distance]
+
+-if leaderboard.pages > 1
+  ul.pagination.pagination-sm
+    -if leaderboard.current_page == 1
+      li.disabled
+        a href='#' «
+    -else
+      li
+        =link_to '«', leaderboard_path(type: leaderboard.type, page: leaderboard.current_page-1), remote: true
+    -(1..leaderboard.pages).each do |i|
+      li class="#{i == leaderboard.current_page ? 'active' : ''}"
+        =link_to i, leaderboard_path(type: leaderboard.type, page: i), remote: true
+    -if leaderboard.current_page == leaderboard.pages
+      li.disabled
+        a href='#' »
+    -else
+      li
+        =link_to '»', leaderboard_path(type: leaderboard.type, page: leaderboard.current_page+1), remote: true

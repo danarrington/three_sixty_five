@@ -13,6 +13,21 @@ describe Leaderboard do
 
       expect(subject.users.first[:distance]).to eq 45.3
     end
+
+    context 'paging' do
+      let!(:users) {create_list(:user, 25, :with_increasing_distance)}
+      subject {Leaderboard.new(type, 2)}
+      it 'should only return [per_page] results' do
+        expect(subject.users.count).to eq Leaderboard::PER_PAGE
+      end
+      it 'should offset results when given a page' do
+        expect(subject.users.first[:id]).not_to eq User.last.id #last factory user created has greatest distance
+        expect(subject.users.first[:id]).to eq User.order(total_distance: :desc).offset(Leaderboard::PER_PAGE).first.id
+      end
+      it 'should return the number of pages' do
+        expect(subject.pages).to eq 3 #20/7 rounded up
+      end
+    end
   end
 
   describe 'single types of runs' do
@@ -32,7 +47,22 @@ describe Leaderboard do
         expect(subject.users.first[:distance]).to eq 6
 
       end
+
+      context 'paging' do
+        let!(:users) {create_list(:user, 20, :with_increasing_walking_distance)}
+        subject {Leaderboard.new(type, 2)}
+
+
+        it 'should only return [per_page] results' do
+          expect(subject.users.count).to eq Leaderboard::PER_PAGE
+        end
+
+        it 'should offset results when given a page' do
+          expect(subject.users.first[:id]).not_to eq User.last.id #last factory user created has greatest distance
+        end
+      end
     end
+
     describe 'biking only' do
       let!(:type) {:bike}
       it 'should set the distance to the biking distance' do

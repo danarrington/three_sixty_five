@@ -7,8 +7,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-#gem 'sdoc', '~> 0.4.0',          group: :doc
-#gem 'spring',        group: :development
+gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'spring',        group: :development
 gem 'rake'
 gem 'bootstrap-sass'
 gem 'devise'
@@ -18,8 +18,8 @@ gem 'upmin-admin'
 gem 'js-routes'
 gem 'bootswatch-rails'
 group :development do
-  #gem 'better_errors'
-  #gem 'binding_of_caller', :platforms=>[:mri_21]
+  gem 'better_errors'
+  gem 'binding_of_caller', :platforms=>[:mri_20]
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'

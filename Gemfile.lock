@@ -301,6 +301,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.0)
   rails_layout
+  rake
   rb-fchange
   rb-fsevent
   rb-inotify

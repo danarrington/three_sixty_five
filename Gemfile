@@ -7,8 +7,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 gem 'rake'
 gem 'bootstrap-sass'
 gem 'devise'
@@ -32,6 +30,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem 'spring'
 end
 group :development, :test do
   gem 'factory_girl_rails'

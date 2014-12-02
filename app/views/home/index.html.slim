@@ -26,6 +26,8 @@
                 div.distance-padding
                   = f.select :runtype, Run.runtypes.keys.to_a, {}, {class: 'form-control'}
                 = f.submit 'Submit', {class:'btn btn-lg btn-block btn-default'}
+              .distance-padding
+              .button.btn.btn-lg.btn-block.btn-danger.js-cancel-run Cancel
         .row
           .visible-xs-block.clearfix style='padding-top:20px;'
       .col-md-6.col-xs-12

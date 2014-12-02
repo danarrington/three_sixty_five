@@ -7,8 +7,14 @@ $(document).ready(function(){
         return false;
     }
 
+    function cancelButtonClicked() {
+        $('.js-log-a-run').show();
+        $('.js-submit-run-container').hide();
+    }
+
     function init() {
         $('.js-log-a-run').click(logButtonClicked);
+        $('.js-cancel-run').click(cancelButtonClicked);
     }
 
     init();

@@ -1,17 +1,17 @@
-.container.container-xs-height
+.container
   .run-data-container
-    .row.row-cs-height
+    .row
       .total-distance.col-xs-8.col-md-4.col-xs-offset-2.col-md-offset-4
         h2.underlined = @user.total_distance
         p mi. completed
-    .row
-      .run-third-box.col-xs-4.col-xs-height
+    .row.row-eq-height
+      .run-third-box.col-xs-4.col-md-2.col-md-offset-2
         h3.underlined = @runs
         p runs
-      .run-third-box.col-xs-4.col-xs-height
+      .run-third-box.col-xs-4.col-md-2
         h3.underlined = @needed_pace
         p miles/day needed
-      .run-third-box.col-xs-4.col-xs-height
+      .run-third-box.col-xs-4.col-md-2
         h3.underlined = @day
         p day
     .row

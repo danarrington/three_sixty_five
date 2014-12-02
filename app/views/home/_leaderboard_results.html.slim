@@ -1,7 +1,7 @@
 -leaderboard.users.each do |u|
   .leaderboard-row
     .name =u[:name]
-    .distance =u[:distance]
+    .distance =u[:distance].round(2)
 
 -if leaderboard.pages > 1
   ul.pagination.pagination-sm

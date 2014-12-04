@@ -31,6 +31,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring'
+  gem 'pg'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -38,7 +39,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
-  gem 'sqlite3'
 end
 group :production do
   gem 'pg'
@@ -48,4 +48,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'sqlite3'
 end

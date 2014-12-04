@@ -12,7 +12,7 @@ class Leaderboard
       query = User.order(total_distance: :desc)
       @users = paged_query(@current_page, query).map{|user| {name: user.first_name, distance: user.total_distance, id: user.id}}
     else
-      query = User.joins(:runs).where('runs.runtype = ?', Run.runtypes[type]).group(:user_id, :first_name)
+      query = User.joins(:runs).where('runs.runtype = ?', Run.runtypes[type]).group('users.id', :first_name)
       @users = paged_query(@current_page, query).order('sum_distance desc').sum(:distance).map{|result| {name: result[0][1], distance: result[1]}}
     end
     @pages = (query.length/PER_PAGE.to_f).ceil

@@ -4,6 +4,6 @@
     =< link_to current_user.first_name, edit_user_registration_path
     =< link_to 'Sign out', destroy_user_session_path, :method=>'delete', :class=>'white'
 -else
-  ul
+  ul.nav.navbar-nav
     li = link_to 'Sign in', new_user_session_path
     li = link_to 'Sign up', new_user_registration_path

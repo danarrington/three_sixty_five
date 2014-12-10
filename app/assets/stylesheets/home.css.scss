@@ -27,8 +27,11 @@
 }
 
 .leaderboard {
-  .name {display:inline-block; width:20%;}
-  .distance {display:inline;}
   .selected {border-width: 1px 0px 1px 0px; border-color:white; border-style:solid;}
+}
+
+.paged-list {
+  .list-label {display:inline-block; width:20%;}
+  .list-data {display:inline;}
 }
 

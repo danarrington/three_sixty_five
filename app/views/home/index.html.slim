@@ -56,5 +56,17 @@
                       =link_to 'Misc Only', leaderboard_path(type: :misc), class: 'js-leaderboard-option', remote: true,data: {description: 'Misc'}
             .leaderboard-results
               =render partial: 'leaderboard_results', locals: {leaderboard: @leaderboard}
+    .row
+      .invisible-xs-block.clearfix style='padding-top:20px;'
+    .row
+      .col-md-6.col-xs-12
+        .row
+          .col-xs-12.dashboard-container.recent-activity
+            .pull-left
+              h4 Your Recent Activity
+            .clearfix
+            .user-recent-activity-results
+              =render partial: 'user_recent_activity', locals: {user_recent_activity: @user_recent_activity}
+
 
 

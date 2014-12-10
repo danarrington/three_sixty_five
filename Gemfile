@@ -31,7 +31,6 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring'
-  gem 'pg'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -40,7 +39,7 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
 end
-group :production do
+group :development, :production do
   gem 'pg'
 end
 group :test do

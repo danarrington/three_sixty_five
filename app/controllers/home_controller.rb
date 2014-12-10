@@ -10,12 +10,22 @@ class HomeController < ApplicationController
     @needed_pace = ((365 - @user.total_distance) / (365-@day)).round(1)
     @run = Run.new
 
+    @user_recent_activity = RecentUserActivity.new(@user)
     @leaderboard = Leaderboard.new(:total)
   end
 
   def leaderboard
     page = params.has_key?(:page) ? params[:page].to_i : 1
     @leaderboard = Leaderboard.new(params[:type], page)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def user_recent_activity
+    page = params.has_key?(:page) ? params[:page].to_i : 1
+    @user_recent_activity = RecentUserActivity.new(current_user, page)
 
     respond_to do |format|
       format.js

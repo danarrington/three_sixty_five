@@ -1,7 +1,8 @@
--leaderboard.users.each do |u|
-  .leaderboard-row
-    .name =u[:name]
-    .distance =u[:distance].round(2)
+.paged-list
+  -leaderboard.users.each do |u|
+    .paged-row
+      .list-label =u[:name]
+      .list-data =u[:distance].round(2)
 
 -if leaderboard.pages > 1
   .center-text

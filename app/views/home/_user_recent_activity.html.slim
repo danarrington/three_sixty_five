@@ -1,0 +1,24 @@
+.paged-list
+  - user_recent_activity.runs.each do |run|
+    .paged-row
+      .list-label =run.created_at.strftime('%b %d')
+      .list-data #{run.distance} mi #{run.runtype}
+
+-if user_recent_activity.pages > 1
+  .center-text
+    ul.pagination.pagination-sm
+      -if user_recent_activity.current_page == 1
+        li.disabled
+          a href='#' «
+      -else
+        li
+          =link_to '«', user_recent_activity_path(page: user_recent_activity.current_page-1), remote: true
+      -(1..user_recent_activity.pages).each do |i|
+        li class="#{i == user_recent_activity.current_page ? 'active' : ''}"
+          =link_to i, user_recent_activity_path(page: i), remote: true
+      -if user_recent_activity.current_page == user_recent_activity.pages
+        li.disabled
+          a href='#' »
+      -else
+        li
+          =link_to '»', user_recent_activity_path(page: user_recent_activity.current_page+1), remote: true

@@ -25,7 +25,7 @@
                   = f.number_field :distance, class: 'form-control input-lg js-distance distance', step:0.01
                 div.distance-padding
                   = f.select :runtype, Run.runtypes.keys.to_a, {}, {class: 'form-control'}
-                = f.submit 'Submit', {class:'btn btn-lg btn-block btn-default'}
+                = f.submit 'Submit', {class:'btn btn-lg btn-block btn-default', data: {disable_with: 'submitting...'}}
               .distance-padding
               .button.btn.btn-lg.btn-block.btn-danger.js-cancel-run Cancel
         .row

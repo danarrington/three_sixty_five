@@ -2,7 +2,7 @@
   -leaderboard.users.each do |u|
     .paged-row
       .list-label =u[:name]
-      .list-data =u[:distance].round(2)
+      .list-data #{u[:distance].round(2)} mi
 
 -if leaderboard.pages > 1
   .center-text

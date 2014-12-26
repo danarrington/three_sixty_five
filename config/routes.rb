@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/get_leaderboard' => 'home#leaderboard', :as => :leaderboard
   get '/get_user_recent_activity' => 'home#user_recent_activity', :as => :user_recent_activity
 
+  get '/about' => 'visitors#about', :as => :about
+
   root to: 'visitors#index'
 
   devise_for :users, :controllers => { registrations: 'registrations' }

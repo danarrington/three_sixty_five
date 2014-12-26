@@ -7,7 +7,7 @@ feature 'Logging Runs' do
     before {capybara_sign_in user}
 
     scenario 'should be able to log a run' do
-      click_link 'Log a run'
+      click_link 'Log your miles'
       fill_in :run_distance, with: 3.2
       click_button 'Submit'
 

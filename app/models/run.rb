@@ -5,4 +5,15 @@ class Run < ActiveRecord::Base
   enum runtype: [:run, :walk, :bike, :swim, :misc]
 
   validates_numericality_of :distance, :greater_than => 0
+
+  def verb
+    case self.runtype
+      when 'bike'
+        'ride'
+      when 'misc'
+        'activity'
+      else
+       self.runtype
+    end
+  end
 end

@@ -2,7 +2,7 @@
   - user_recent_activity.runs.each do |run|
     .paged-row
       .list-label =run.created_at.strftime('%b %d')
-      .list-data #{run.distance} mi #{run.runtype}
+      .list-data #{run.distance} mi #{run.verb}
 
 -if user_recent_activity.pages > 1
   .center-text

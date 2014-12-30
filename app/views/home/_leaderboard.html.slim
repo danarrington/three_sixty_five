@@ -1,0 +1,35 @@
+.top.clearfix
+  .pull-left
+    h4 Leaderboard
+  .pull-right
+    .btn-group
+      a.btn.btn-default.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#"
+        span.js-leaderboard-selection-text Overall
+        span.caret
+      ul.dropdown-menu
+        li
+          =link_to 'Overall', leaderboard_path(type: :total), 
+            class: 'js-leaderboard-option selected', remote: true, 
+            data: {description: 'Overall'}
+        li
+          =link_to 'Running Only', leaderboard_path(type: :run),
+            class: 'js-leaderboard-option', remote: true, 
+            data: {description: 'Running'}
+        li
+          =link_to 'Walking Only', leaderboard_path(type: :walk),
+            class: 'js-leaderboard-option', remote: true, 
+            data: {description: 'Walking'}
+        li
+          =link_to 'Biking Only', leaderboard_path(type: :bike), 
+            class: 'js-leaderboard-option', remote: true, 
+            data: {description: 'Biking'}
+        li
+          =link_to 'Swimming Only', leaderboard_path(type: :swim),
+            class: 'js-leaderboard-option', remote: true, 
+            data: {description: 'Swimming'}
+        li
+          =link_to 'Misc Only', leaderboard_path(type: :misc),
+            class: 'js-leaderboard-option', remote: true,
+            data: {description: 'Misc'}
+.leaderboard-results
+  =render partial: 'leaderboard_results', locals: {leaderboard: @leaderboard}

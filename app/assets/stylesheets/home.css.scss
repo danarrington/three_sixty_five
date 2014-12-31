@@ -24,7 +24,8 @@
 .distance-padding {padding:5px;}
 
 .dashboard-container {
-  background-color: lighten($body-bg, 3%)
+  background-color: lighten($body-bg, 3%); 
+  border: 10px solid $body-bg;
 }
 
 .leaderboard {

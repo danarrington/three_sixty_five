@@ -72,6 +72,7 @@ pickle-email-*.html
 
 # vim artifacts
 **.swp
+**.swo
 
 # Environment files that may contain sensitive data
 .env

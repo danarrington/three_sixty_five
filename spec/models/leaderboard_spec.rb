@@ -14,6 +14,16 @@ describe Leaderboard do
       expect(subject.users.first[:distance]).to eq 45.3
     end
 
+    it 'should set the name abbreviation' do
+      user2 = create(:user, first_name: 'Bob', last_name: 'Johnson')
+      expect(subject.users.first[:name]).to eq 'Bob J'
+    end
+
+    it 'should capitalize the names' do
+      user2 = create(:user, first_name: 'bob', last_name: 'johnson')
+      expect(subject.users.first[:name]).to eq 'Bob J'
+    end
+
     context 'paging' do
       let!(:users) {create_list(:user, 25, :with_increasing_distance)}
       subject {Leaderboard.new(type, 2)}
@@ -32,7 +42,7 @@ describe Leaderboard do
 
   describe 'single types of runs' do
     let!(:user1) {create(:user, total_distance: 50)}
-    let!(:user2) {create(:user, total_distance: 5)}
+    let!(:user2) {create(:user, total_distance: 5, first_name: 'bob', last_name: 'jo')}
     describe 'walking only' do
       let!(:type) {:walk}
       it 'should set the distance to the walking distance' do
@@ -45,7 +55,11 @@ describe Leaderboard do
         user2.runs.create(runtype: :walk, distance: 3.5)
         user1.runs.create(runtype: :walk, distance: 4.5)
         expect(subject.users.first[:distance]).to eq 6
+      end
 
+      it 'should set the name abbreviation' do
+        user2.runs.create(runtype: :walk, distance: 2.5)
+        expect(subject.users.first[:name]).to eq 'Bob J' 
       end
 
       context 'paging' do

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/get_user_recent_activity' => 'home#user_recent_activity', :as => :user_recent_activity
 
   get '/about' => 'visitors#about', :as => :about
+  get '/admin/stats' => 'admin#stats', :as => :stats
 
   root to: 'visitors#index'
 

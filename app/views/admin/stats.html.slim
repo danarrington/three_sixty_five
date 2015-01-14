@@ -1,0 +1,24 @@
+.container
+  .row
+    .col-md-8.col-md-offset-2
+      h1 Stats!
+      =form_for @filter, url: stats_path, method:'get', 
+          html: {class: 'form-inline'} do |f|
+        =f.select :type, Run.runtypes, {include_blank: 'all types'}, 
+          {class: 'input-small form-control'}
+        .form-group
+          label.control-label style='padding: 0px 5px' from:
+          =f.date_field(:from, value: @filter.from, class: 'form-control')
+        .form-group
+          label.control-label style='padding: 0px 5px' to:
+          =f.date_field(:to, value: @filter.to, class: 'form-control')
+        button.btn.btn-success Update
+      table.table.table-striped.table-hover
+        th Name
+        th Runs
+        th Distance
+        -@data.each do |user|
+          tr
+            td=user[:first_name] + ' ' + user[:last_name]
+            td=user[:count]
+            td=user[:distance]

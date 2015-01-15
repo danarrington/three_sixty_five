@@ -6,24 +6,7 @@ class AdminController < ApplicationController
 
   def stats
     @filter = AdminFilter.new(filter_params)
-    query = User.joins(:runs).group('users.id', :first_name, :last_name)
-    if !@filter.type.blank?
-      query = query.where('runs.runtype = ?', @filter.type)
-    end
-    if !@filter.from.blank?
-      query = query.where('runs.created_at > ?', @filter.from)
-    end
-    if !@filter.to.blank?
-      query = query.where('runs.created_at < ?', @filter.to)
-    end
-    query = query.order('distance desc')
-      .select('SUM(distance) AS distance, COUNT(*) as count, users.id, first_name, last_name')
-
-    @data = query.map{|i| {
-      first_name: i.first_name,
-      last_name: i.last_name,
-      distance: i.distance,
-      count: i.count}} 
+    @data = @filter.filtered_user_data
   end
 
   private

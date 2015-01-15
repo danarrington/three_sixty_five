@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require js-routes
+//= require moment
 //= require_tree .

@@ -5,14 +5,21 @@
       =form_for @filter, url: stats_path, method:'get', 
           html: {class: 'form-inline'} do |f|
         =f.select :type, Run.runtypes, {include_blank: 'all types'}, 
-          {class: 'input-small form-control'}
+          {class: 'input-sm form-control'}
         .form-group
           label.control-label style='padding: 0px 5px' from:
-          =f.date_field(:from, value: @filter.from, class: 'form-control')
+          =f.date_field(:from, value: @filter.from, class: 'form-control input-sm')
         .form-group
           label.control-label style='padding: 0px 5px' to:
-          =f.date_field(:to, value: @filter.to, class: 'form-control')
-        button.btn.btn-success Update
+          =f.date_field(:to, value: @filter.to, class: 'form-control input-sm')
+        .form-group style='padding: 0px 5px'
+          select.form-control.input-sm.js-quick-select
+            option quick set
+            option value='tm' this month
+            option value='lm' last month
+            option value='lw' last week
+        button.btn.btn-success.btn-sm Update
+        a.btn.btn-danger.btn-sm.js-reset-button Reset
       table.table.table-striped.table-hover
         th Name
         th Runs

@@ -1,6 +1,7 @@
 class RunsController < ApplicationController
 
   before_action :authenticate_user!
+  skip_before_filter :verify_authenticity_token, :only => [:create]
 
   def create
     run = Run.new(run_params)

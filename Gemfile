@@ -50,4 +50,5 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'sqlite3'
+  gem 'poltergeist'
 end

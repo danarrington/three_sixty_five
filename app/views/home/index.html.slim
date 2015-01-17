@@ -1,56 +1,50 @@
 .container
-  .run-data-container
-    .row
-      .col-md-6.col-xs-12
-        .row
-          .total-distance.col-xs-8.col-xs-offset-2
-            h2.underlined = @user.total_distance
-            p mi. completed
-        .row.row-eq-height
-          .run-third-box.col-xs-4
-            h3.underlined = @runs
-            p runs
-          .run-third-box.col-xs-4
-            h3.underlined = @needed_pace
-            p miles/day needed
-          .run-third-box.col-xs-4
-            h3.underlined = @day
-            p day
-        .row
-          .col-xs-12.col-md-8.col-md-offset-2
-            a.btn.btn-lg.btn-block.btn-default.js-log-a-run href='#' Log your miles
-            span.collapse.js-submit-run-container
-              =form_for @run do |f|
-                div.distance-padding
-                  = f.number_field :distance, class: 'form-control input-lg js-distance distance', step:0.01
-                div.distance-padding
-                  = f.select :runtype, Run.runtypes.keys.to_a, {}, {class: 'form-control'}
-                = f.submit 'Submit', {class:'btn btn-lg btn-block btn-default', data: {disable_with: 'submitting...'}}
-              .distance-padding
-              .button.btn.btn-lg.btn-block.btn-danger.js-cancel-run Cancel
-        .row
-          .visible-xs-block.clearfix style='padding-top:20px;'
-      .col-md-6.col-xs-12
-        .row
-          .col-xs-12.dashboard-container.leaderboard
-            =render partial: 'leaderboard'
-    .row
-      .invisible-xs-block.clearfix style='padding-top:20px;'
-    .row
-      .col-md-6.col-xs-12
-        .row
-          .col-xs-12.dashboard-container.recent-activity
-            .pull-left
-              h4 Your Recent Activity
-            .clearfix
-            .user-recent-activity-results
-              =render partial: 'user_recent_activity',
-                locals: {user_recent_activity: @user_recent_activity}
-      .col-md-6.col-xs-12
-        .row
-          .col-xs-12.dashboard-container.all-recent-activity
-            .pull-left
-              h4 All Recent Activity
-            .clearfix
-            .user-recent-activity-results
-
+  .row
+    .col-md-6.col-xs-12.run-data-container
+      .row
+        .total-distance.col-xs-8.col-xs-offset-2
+          h2.underlined = @user.total_distance
+          p mi. completed
+      .row.row-eq-height
+        .run-third-box.col-xs-4
+          h3.underlined = @runs
+          p runs
+        .run-third-box.col-xs-4
+          h3.underlined = @needed_pace
+          p miles/day needed
+        .run-third-box.col-xs-4
+          h3.underlined = @day
+          p day
+      .row
+        .col-xs-12.col-md-8.col-md-offset-2
+          a.btn.btn-lg.btn-block.btn-default.js-log-a-run href='#' Log your miles
+          span.collapse.js-submit-run-container
+            =form_for @run do |f|
+              div.distance-padding
+                = f.number_field :distance, class: 'form-control input-lg js-distance distance', step:0.01
+              div.distance-padding
+                = f.select :runtype, Run.runtypes.keys.to_a, {}, {class: 'form-control'}
+              = f.submit 'Submit', {class:'btn btn-lg btn-block btn-default', data: {disable_with: 'submitting...'}}
+            .distance-padding
+            .button.btn.btn-lg.btn-block.btn-danger.js-cancel-run Cancel
+      .row
+        .visible-xs-block.clearfix style='padding-top:20px;'
+    .col-md-6.col-xs-12.dashboard-container.leaderboard
+      =render partial: 'leaderboard'
+  .row
+    .invisible-xs-block.clearfix style='padding-top:20px;'
+  .row
+    .col-md-6.col-xs-12.dashboard-container.user-recent-activity
+      .pull-left
+        h4 Your Recent Activity
+      .clearfix
+      .user-recent-activity-results
+        =render partial: 'user_recent_activity',
+        locals: {user_recent_activity: @user_recent_activity}
+    .col-md-6.col-xs-12.dashboard-container.all-recent-activity
+      .pull-left
+        h4 All Recent Activity
+      .clearfix
+      .all-recent-activity-results
+        =render partial: 'user_recent_activity',
+          locals: {user_recent_activity: @all_recent_activity}

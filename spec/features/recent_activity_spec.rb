@@ -9,8 +9,20 @@ feature 'Recent Activity' do
     before {Run.create(user:user, distance: 2.3, runtype: :run)}
     scenario 'should see recently submitted runs' do
       visit '/'
-      expect(page.find('.recent-activity')).to have_content '2.3'
+      expect(page.find('.user-recent-activity')).to have_content '2.3'
+    end
 
+    context 'with many runs', js: true do
+      before {create_list(:run, 17, user:user)}
+      scenario 'should be able to page through their recent activity' do
+        visit '/'
+        within('.user-recent-activity') do
+          expect(page).to have_selector('.paged-row', count:10)
+          click_link('2')
+          expect(page).to have_selector('.paged-row', count:8)
+        end
+
+      end
     end
   end
 end

@@ -19,5 +19,10 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_a_run do
+      after :create do |user|
+        FactoryGirl.create(:run, runtype: :run, user:user)
+      end
+    end
   end
 end

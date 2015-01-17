@@ -12,6 +12,7 @@ class HomeController < ApplicationController
     @run = Run.new
 
     @user_recent_activity = RecentUserActivity.new(@user)
+    @all_recent_activity = RecentUserActivity.new()
     @leaderboard = Leaderboard.new(:total)
   end
 
@@ -26,7 +27,8 @@ class HomeController < ApplicationController
 
   def user_recent_activity
     page = params.has_key?(:page) ? params[:page].to_i : 1
-    @user_recent_activity = RecentUserActivity.new(current_user, page)
+    user = params.has_key?(:user_id) ? User.find(params[:user_id]) : nil
+    @user_recent_activity = RecentUserActivity.new(user, page)
 
     respond_to do |format|
       format.js

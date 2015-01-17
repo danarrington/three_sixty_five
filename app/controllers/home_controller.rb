@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
+  skip_before_filter :verify_authenticity_token
 
   def index
     #TODO test these also

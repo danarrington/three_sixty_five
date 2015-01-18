@@ -1,4 +1,4 @@
-class RecentUserActivity
+class RecentActivity
   attr_reader :runs
   attr_reader :pages
   attr_reader :current_page

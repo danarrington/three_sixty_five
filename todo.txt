@@ -2,3 +2,4 @@ x Figure out in js.erb which activity to update
 x Add poltergeist and add 'activity paging' tests
 - Add names to all activity
 - Refactor user_recent_activity so it's just recent_activity
+- Limit activity secions to x (10?) pages

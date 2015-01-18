@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-describe RecentUserActivity do
+describe RecentActivity do
 
   let(:user) {create(:user)}
 
   context 'for a user' do
-    subject {RecentUserActivity.new(user)}
+    subject {RecentActivity.new(user)}
     context 'with no extra parameters' do
       let!(:runs) {create_list(:run, 5, user_id: user.id)}
       it 'should return recent runs for user' do
@@ -27,7 +27,7 @@ describe RecentUserActivity do
   end
 
   context 'when not given a user' do
-    subject {RecentUserActivity.new()}
+    subject {RecentActivity.new()}
     let!(:user1) {create(:user, :with_a_run)}
     let!(:user2) {create(:user, :with_a_run)}
     it 'should return all recent activity' do

@@ -39,12 +39,12 @@
         h4 Your Recent Activity
       .clearfix
       .user-recent-activity-results
-        =render partial: 'user_recent_activity',
-        locals: {user_recent_activity: @user_recent_activity}
+        =render partial: 'recent_activity',
+        locals: {recent_activity: @user_recent_activity}
     .col-md-6.col-xs-12.dashboard-container.all-recent-activity
       .pull-left
         h4 All Recent Activity
       .clearfix
       .all-recent-activity-results
-        =render partial: 'user_recent_activity',
-          locals: {user_recent_activity: @all_recent_activity}
+        =render partial: 'recent_activity',
+          locals: {recent_activity: @all_recent_activity}

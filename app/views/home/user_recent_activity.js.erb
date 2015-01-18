@@ -1,2 +1,0 @@
-var target = '<%=@user_recent_activity.user_id ? '.user-recent-activity-results' : '.all-recent-activity-results' %>';
-$(target).html("<%= escape_javascript(render partial: 'user_recent_activity', locals:{user_recent_activity:@user_recent_activity})%>");

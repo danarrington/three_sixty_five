@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def print_name
+    "#{first_name.capitalize} #{last_name.capitalize.first}"
+  end
 end

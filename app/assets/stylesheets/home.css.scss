@@ -33,7 +33,12 @@
 }
 
 .paged-list {
-  .list-label {display:inline-block; width:100px;}
-  .list-data {display:inline;}
+  .list-label {
+    display:inline-block;
+    width:100px;
+  }
+  .list-data {
+    display:inline-block;
+  }
 }
 

@@ -7,6 +7,11 @@ class AdminController < ApplicationController
   def stats
     @filter = AdminFilter.new(filter_params)
     @data = @filter.filtered_user_data
+    @sums = {
+      people: @data.count,
+      runs: @data.map {|d| d[:count]}.reduce(0, :+),
+      distance: @data.map {|d| d[:distance]}.reduce(0, :+),
+    }
   end
 
   private

@@ -21,9 +21,9 @@
         button.btn.btn-success.btn-sm Update
         a.btn.btn-danger.btn-sm.js-reset-button Reset
       table.table.table-striped.table-hover
-        th Name
-        th Runs
-        th Distance
+        th Name &nbsp; (#{@sums[:people]})
+        th Runs &nbsp; (#{@sums[:runs]})
+        th Distance &nbsp; (#{@sums[:distance]})
         -@data.each do |user|
           tr
             td=user[:first_name] + ' ' + user[:last_name]

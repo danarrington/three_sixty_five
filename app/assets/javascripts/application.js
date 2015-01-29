@@ -17,4 +17,6 @@
 //= require bootstrap-sprockets
 //= require js-routes
 //= require moment
+//= require bootstrap-editable
+//= require bootstrap-editable-rails
 //= require_tree .

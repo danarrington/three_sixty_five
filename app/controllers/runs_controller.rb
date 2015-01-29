@@ -14,6 +14,19 @@ class RunsController < ApplicationController
     redirect_to user_root_path
   end
 
+  def index
+    @runs = current_user.runs.order(created_at: :desc)
+  end
+
+  def update
+    run = Run.find(params[:id])
+    if run.update_attributes(run_params)
+      run.user.recalculate_total_distance!
+      render json: {}, status: :ok
+    else
+      render json: run.errors.messages, status: :unprocessable_entity
+    end
+  end
 
   private
 

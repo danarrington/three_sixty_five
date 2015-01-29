@@ -37,6 +37,8 @@
     .col-md-6.col-xs-12.dashboard-container.user-recent-activity
       .pull-left
         h4 Your Recent Activity
+      .pull-right
+        =link_to 'Edit', runs_path, class: 'btn btn-default'
       .clearfix
       .user-recent-activity-results
         =render @user_recent_activity

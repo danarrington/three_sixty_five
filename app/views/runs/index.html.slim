@@ -1,0 +1,16 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3.col-sm-12
+      table.table
+        -@runs.each do |run|
+          tr
+            td =run.created_at
+            td 
+              =link_to run.runtype, '#', data: {type:'select', resource:'run',
+                name: 'runtype', url: run_path(run),
+                source: Run.runtypes.keys},
+                class: 'editable'
+            td 
+              =link_to run.distance, '#', data: {type:'text', resource: 'run',
+                name: 'distance', url: run_path(run)}, class: 'editable'
+

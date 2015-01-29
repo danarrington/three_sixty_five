@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   def print_name
     "#{first_name.capitalize} #{last_name.capitalize.first}"
   end
+
+  def recalculate_total_distance!
+    self.update(total_distance: self.runs.sum(:distance))
+  end
 end

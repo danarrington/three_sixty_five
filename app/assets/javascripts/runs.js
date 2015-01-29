@@ -15,6 +15,7 @@ $(document).ready(function(){
     function init() {
         $('.js-log-a-run').click(logButtonClicked);
         $('.js-cancel-run').click(cancelButtonClicked);
+        $('.editable').editable();
     }
 
     init();

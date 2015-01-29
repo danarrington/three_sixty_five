@@ -63,4 +63,63 @@ describe RunsController do
     end
 
   end
+
+  describe 'GET #index' do
+    context 'with a signed out user' do
+      it 'should redirect to root' do
+        get :index
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+    context 'with a signed in user' do
+      let!(:user) {create(:user, :with_a_run)}
+      let!(:other_user) {create(:user, :with_a_run)}
+      before {sign_in user}
+      it 'should list only that users runs' do
+        get :index
+        expect(assigns(:runs).count).to eq 1 
+      end
+    end
+  end
+
+  describe 'PUT #update' do
+    let!(:user) {create(:user, total_distance: 23.1)}
+    let!(:run) {create(:run, user:user, distance: 12.1)}
+    context 'with a signed out user' do 
+      it 'should redirect to signin' do
+        put :update, id: run.id
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+    context 'with a signed in user' do
+      before {sign_in user}
+      context 'with valid data' do
+        it 'should update the run distance' do
+          put :update, id: run.id, run: attributes_for(:run, distance: 1.21)
+          run.reload
+          expect(run.distance).to eq 1.21
+        end
+
+        it 'should update the users total distance' do
+          post :update, id: run.id, run: attributes_for(:run, distance:3.1)
+          user.reload
+          expect(user.total_distance).to eq 3.1
+        end
+      end
+
+      context 'with invalid data' do
+        it 'should return the right status' do
+          post :update, id: run.id, run: attributes_for(:run, distance:'3.1.1')
+          expect(response).to be_unprocessable
+        end
+
+        it 'should return the error' do
+          post :update, id: run.id, run: attributes_for(:run, distance:'3.1.1')
+          expect JSON.parse(response.body).count > 0
+        end
+      end
+    end
+  end
 end

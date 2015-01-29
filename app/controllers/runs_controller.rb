@@ -15,7 +15,7 @@ class RunsController < ApplicationController
   end
 
   def index
-    @runs = current_user.runs.order(created_at: :desc)
+    @runs = current_user.runs.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def update

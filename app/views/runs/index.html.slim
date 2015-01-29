@@ -13,4 +13,6 @@
             td 
               =link_to run.distance, '#', data: {type:'text', resource: 'run',
                 name: 'distance', url: run_path(run)}, class: 'editable'
+      .center-text
+        = paginate @runs, window: 5
 

@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :run do
     distance 2.01
+    runtype :run
 
     trait :with_increasing_distance do
       sequence(:distance) { |n| n + 0.5 }

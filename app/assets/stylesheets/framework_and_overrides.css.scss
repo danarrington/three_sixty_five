@@ -79,3 +79,12 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+// x-editable overrides
+table.editable a.editable-click {
+  border-bottom: 1px dashed $brand-primary; 
+  text-decoration:none;
+  &:hover {
+    border-bottom: 1px solid white;
+  }
+}

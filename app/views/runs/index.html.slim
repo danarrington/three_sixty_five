@@ -6,16 +6,24 @@
       table.table.editable.table-striped
         -@runs.each do |run|
           tr
-            td =run.created_at.strftime('%b %d')
+            td 
+              =link_to run.created_at.strftime('%-m/%-d'), '#', 
+                data: {type:'date', resource:'run', name: 'created_at',
+                url: run_path(run),value: run.created_at.strftime('%-m/%-d'),
+                format:'m/d',
+                datepicker: {defaultViewDate: '-1d'}}, 
+                class: 'editable-right'
             td 
               =link_to run.runtype, '#', data: {type:'select', resource:'run',
                 name: 'runtype', url: run_path(run),
-                source: Run.runtypes.keys},
+                source: Run.runtypes.keys, value: run.runtype},
                 class: 'editable'
             td 
               =link_to run.distance, '#', data: {type:'text', resource: 'run',
-                name: 'distance', url: run_path(run)}, class: 'editable'
+                name: 'distance', url: run_path(run),
+                inputclass:'input-sm input-tiny'}, 
+                class: 'editable-left'
       .center-text
-        = paginate @runs, window: 5
+        = paginate @runs, window: 7
       a.btn.btn-lg.btn-block.btn-primary href="#{root_path}" Done
 

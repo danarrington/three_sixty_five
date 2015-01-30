@@ -1,8 +1,12 @@
 Editable Data
-- Edit a date
+x Edit a date
 - date migration
 - Test so that new run saves right field
 - Recent activity sorts by new field
 - Your activity sorts by new field
-- Edit the date
-- Inline edit
+- Edit the date (sql)
+- Date settings?
+  { no 2014, no future, highlight previous value}
+- Validate date inpuy?
+- Delete a run
+

@@ -16,6 +16,12 @@ $(document).ready(function(){
         $('.js-log-a-run').click(logButtonClicked);
         $('.js-cancel-run').click(cancelButtonClicked);
         $('a.editable').editable();
+        $('a.editable-right').editable({
+          placement: 'right'  
+        });
+        $('a.editable-left').editable({
+          placement: 'left'  
+        });
     }
 
     init();

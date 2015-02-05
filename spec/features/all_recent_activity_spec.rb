@@ -4,11 +4,12 @@ feature 'All Recent Activity' do
 
   context 'a logged in user' do
     let(:user) {create(:user)}
-    let!(:other_user) {create(:user, runs: create_list(:run, 10))}
+    let!(:other_user) {create(:user, 
+      runs: create_list(:run, 10, run_date:1.day.ago))}
     let!(:other_run) {create(:run, user:other_user, distance: 3.1, runtype: :walk)}
     before {capybara_sign_in user}
 
-    before {Run.create(user:user, distance: 2.3, runtype: :run)}
+    before {create(:run, user:user, distance: 2.3, runtype: :run)}
     scenario 'should see all recently submitted runs' do
       visit '/'
       expect(page.find('.all-recent-activity')).to have_content '2.3'

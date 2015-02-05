@@ -5,7 +5,8 @@ feature 'Edit Run Data', js:true do
 
   context 'a logged in user with previous entries' do
     let!(:too_long_run) {create(:run, user:user, distance:30)}
-    let!(:wrong_date_run) {create(:run, user:user, distance:2.0, :runtype=>:swim)}
+    let!(:wrong_type_run) {create(:run, user:user, distance:2.0, :runtype=>:swim)}
+    let!(:wrong_date_run) {create(:run, user:user, run_date:'1/1/2015')}
 
     before {capybara_sign_in user}
     scenario 'should be able to edit the distance' do
@@ -28,6 +29,18 @@ feature 'Edit Run Data', js:true do
       find('.glyphicon-ok').click
       visit '/'
       expect(page).to have_content('walk')
+    end
+
+    scenario 'should be able to edit the date' do
+      visit '/'
+      click_link('Edit')
+
+      click_link('1/1')
+      find("td.day", text: 21).click
+      find('.glyphicon-ok').click
+
+      visit '/'
+      expect(page).to have_content('Jan 21')
     end
 
     context 'with many runs' do

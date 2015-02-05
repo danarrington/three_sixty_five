@@ -6,7 +6,7 @@ feature 'Recent Activity' do
     let(:user) {create(:user, total_distance: 113.5)}
     before {capybara_sign_in user}
 
-    before {Run.create(user:user, distance: 2.3, runtype: :run)}
+    before {create(:run, user:user, distance: 2.3, runtype: :run)}
     scenario 'should see recently submitted runs' do
       visit '/'
       expect(page.find('.user-recent-activity')).to have_content '2.3'

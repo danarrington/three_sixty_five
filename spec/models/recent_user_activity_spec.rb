@@ -13,8 +13,8 @@ describe RecentActivity do
       end
 
       it 'should sort them by date' do
-        early_run = create(:run, created_at:3.days.ago, user_id: user.id)
-        expect(subject.runs.last.id).to eq early_run.id
+        early_run = create(:run, run_date:3.days.ago, user_id: user.id)
+        expect(subject.runs.last).to eq early_run
       end
 
       context 'with many runs' do

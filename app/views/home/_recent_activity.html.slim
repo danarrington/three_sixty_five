@@ -2,12 +2,12 @@
   - recent_activity.runs.each do |run|
     .paged-row
       - if recent_activity.user_id
-        .list-label=run.created_at.strftime('%b %d')
+        .list-label=run.run_date.strftime('%b %d')
         .list-data #{run.distance} mi #{run.verb}
       - else
         .list-label #{run.user.print_name}
         .list-data 
-          |#{run.distance} mi #{run.verb} #{short_time_ago(run.created_at)} ago
+          |#{run.distance} mi #{run.verb} #{short_time_ago(run.run_date)} ago
 -if recent_activity.pages > 1
   .center-text
     ul.pagination.pagination-sm

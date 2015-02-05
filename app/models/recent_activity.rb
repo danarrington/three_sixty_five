@@ -11,7 +11,7 @@ class RecentActivity
     @user_id = user.id if user
     @current_page = page
     query = user ? user.runs : Run.limit(ALL_ACTIVITY_LIMIT)
-    @runs = paged_query(@current_page, query).order(created_at: :desc)
+    @runs = paged_query(@current_page, query).order(run_date: :desc)
     @pages = (query.length/PER_PAGE.to_f).ceil
   end
 

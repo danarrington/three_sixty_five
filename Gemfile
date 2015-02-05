@@ -51,4 +51,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'sqlite3'
   gem 'poltergeist'
+  gem 'timecop'
 end

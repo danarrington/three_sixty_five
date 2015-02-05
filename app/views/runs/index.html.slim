@@ -7,9 +7,9 @@
         -@runs.each do |run|
           tr
             td 
-              =link_to run.created_at.strftime('%-m/%-d'), '#', 
-                data: {type:'date', resource:'run', name: 'created_at',
-                url: run_path(run),value: run.created_at.strftime('%-m/%-d'),
+              =link_to run.run_date.strftime('%-m/%-d'), '#', 
+                data: {type:'date', resource:'run', name: 'run_date',
+                url: run_path(run),value: run.run_date.strftime('%-m/%-d'),
                 format:'m/d',
                 datepicker: {defaultViewDate: '-1d'}}, 
                 class: 'editable-right'

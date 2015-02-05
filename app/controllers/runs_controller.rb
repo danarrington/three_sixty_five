@@ -5,6 +5,7 @@ class RunsController < ApplicationController
 
   def create
     run = Run.new(run_params)
+    run.run_date = DateTime.now
     if run.save
       current_user.total_distance += run.distance
       current_user.save
@@ -15,7 +16,7 @@ class RunsController < ApplicationController
   end
 
   def index
-    @runs = current_user.runs.order(created_at: :desc).page(params[:page]).per(10)
+    @runs = current_user.runs.order(run_date: :desc).page(params[:page]).per(10)
   end
 
   def update
@@ -31,6 +32,11 @@ class RunsController < ApplicationController
   private
 
   def run_params
-    params.require(:run).permit(:id, :distance, :runtype).merge(user_id: current_user.id)
+    merged_params = params.require(:run).permit(:id, :distance, :runtype, :run_date)
+      .merge( user_id: current_user.id)
+    if merged_params[:run_date]
+      merged_params[:run_date] = Date.parse(merged_params[:run_date])
+    end
+    merged_params
   end
 end

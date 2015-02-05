@@ -5,6 +5,8 @@ describe RunsController do
   describe 'POST #create' do
     let(:user) {create(:user, total_distance: 5)}
     let!(:season) {create(:season)}
+    before {Timecop.freeze}
+    after {Timecop.return}
 
     context 'with signed in user' do
       before {sign_in user}
@@ -28,6 +30,7 @@ describe RunsController do
           expect(r.distance).to eq 2.34
           expect(r.season).to eq season
           expect(Run.runtypes[r.runtype]).to eq Run.runtypes[:run]
+          expect(r.run_date.to_datetime.to_s).to eq DateTime.now.to_s
         end
 
         it 'should update the users total distance' do
@@ -85,7 +88,8 @@ describe RunsController do
 
   describe 'PUT #update' do
     let!(:user) {create(:user, total_distance: 23.1)}
-    let!(:run) {create(:run, user:user, distance: 12.1)}
+    let!(:run) {create(:run, user:user, distance: 12.1, 
+                       run_date: Date.today-5.days)}
     context 'with a signed out user' do 
       it 'should redirect to signin' do
         put :update, id: run.id
@@ -106,6 +110,13 @@ describe RunsController do
           post :update, id: run.id, run: attributes_for(:run, distance:3.1)
           user.reload
           expect(user.total_distance).to eq 3.1
+        end
+
+        it 'should update the run_date' do
+          post :update, id: run.id, 
+            run: attributes_for(:run, run_date:Date.yesterday.strftime('%-m/%-d'))
+          run.reload
+          expect(run.run_date.to_datetime).to eq DateTime.now.midnight-1.day
         end
       end
 

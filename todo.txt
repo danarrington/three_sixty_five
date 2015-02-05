@@ -1,12 +1,15 @@
 Editable Data
 x Edit a date
-- date migration
-- Test so that new run saves right field
-- Recent activity sorts by new field
-- Your activity sorts by new field
-- Edit the date (sql)
+x date migration
+x Test so that new run saves right field
+x Test so edit run saves right field
+x Recent activity sorts by new field
+x Your activity sorts by new field
+x Edit the date (sql)
 - Date settings?
   { no 2014, no future, highlight previous value}
 - Validate date inpuy?
+x Recent activity needs to have time, not just date
+  x should this field be datetime?
 - Delete a run
 

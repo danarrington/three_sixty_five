@@ -46,19 +46,19 @@ describe Leaderboard do
     describe 'walking only' do
       let!(:type) {:walk}
       it 'should set the distance to the walking distance' do
-        user2.runs.create(runtype: :walk, distance: 2.5)
+        user2.runs << create(:run, runtype: :walk, distance: 2.5)
         expect(subject.users.first[:distance]).to eq 2.5
       end
 
       it 'should sort by walking distance' do
-        user2.runs.create(runtype: :walk, distance: 2.5)
-        user2.runs.create(runtype: :walk, distance: 3.5)
-        user1.runs.create(runtype: :walk, distance: 4.5)
+        user2.runs << create(:run, runtype: :walk, distance: 2.5)
+        user2.runs << create(:run, runtype: :walk, distance: 3.5)
+        user1.runs <<  create(:run, runtype: :walk, distance: 4.5)
         expect(subject.users.first[:distance]).to eq 6
       end
 
       it 'should set the name abbreviation' do
-        user2.runs.create(runtype: :walk, distance: 2.5)
+        user2.runs << create(:run, runtype: :walk, distance: 2.5)
         expect(subject.users.first[:name]).to eq 'Bob J' 
       end
 
@@ -80,7 +80,7 @@ describe Leaderboard do
     describe 'biking only' do
       let!(:type) {:bike}
       it 'should set the distance to the biking distance' do
-        user2.runs.create(runtype: :bike, distance: 3.5)
+        user2.runs << create(:run, runtype: :bike, distance: 3.5)
         expect(subject.users.first[:distance]).to eq 3.5
       end
     end

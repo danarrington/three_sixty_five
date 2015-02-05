@@ -8,10 +8,10 @@ class AdminFilter
       query = query.where('runs.runtype = ?', type)
     end
     if !from.blank?
-      query = query.where('runs.created_at >= ?', from)
+      query = query.where('runs.run_date >= ?', from)
     end
     if !to.blank?
-      query = query.where('runs.created_at <= ?', to)
+      query = query.where('runs.run_date <= ?', to)
     end
     query = query.order('distance desc')
       .select('SUM(distance) AS distance, COUNT(*) as count, users.id, first_name, last_name')

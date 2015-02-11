@@ -133,4 +133,33 @@ describe RunsController do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    let!(:user) {create(:user, total_distance: 23.1)}
+    let!(:run) {create(:run, user:user, distance: 12.1, 
+                       run_date: Date.today-5.days)}
+    let!(:other_run) {create(:run, user:create(:user))}
+    context 'with a signed in user' do
+      before {sign_in user}
+      it 'should delete the run' do
+        expect {
+          delete :destroy, id: run
+        }.to change(Run, :count).by(-1)
+      end
+
+      it 'should update the users total distance' do
+        delete :destroy, id: run
+        user.reload
+        expect(user.total_distance).to eq 0.0
+      end
+
+      it 'should not allow you to delete someone elses run' do
+        expect {
+          delete :destroy, id: other_run
+        }.to change(Run, :count).by(0)
+      end
+
+    end
+
+  end
 end

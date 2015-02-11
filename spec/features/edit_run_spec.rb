@@ -43,6 +43,19 @@ feature 'Edit Run Data', js:true do
       expect(page).to have_content('Jan 21')
     end
 
+    scenario 'should be able to delete runs' do
+      visit '/'
+      click_link('Edit')
+
+      within("tr[data-run-id='#{too_long_run.id}']") do
+        find('.glyphicon-remove').click
+      end
+      click_link('Delete')
+
+      visit '/'
+      expect(page).to_not have_content('30')
+    end
+
     context 'with many runs' do
       before {create_list(:run, 21, user:user)}
 

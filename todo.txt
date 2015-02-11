@@ -11,5 +11,6 @@ x Edit the date (sql)
 - Validate date inpuy?
 x Recent activity needs to have time, not just date
   x should this field be datetime?
-- Delete a run
+x Delete a run
+  x Updates total distance
 

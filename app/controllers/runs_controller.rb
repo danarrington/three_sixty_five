@@ -29,6 +29,17 @@ class RunsController < ApplicationController
     end
   end
 
+  def destroy
+    run = Run.find(params[:id])
+    if run.user != current_user
+      return render json:{}, status: :unauthorized
+    end
+
+    run.destroy
+    run.user.recalculate_total_distance!
+    render json: {id:run.id}, status: :ok
+  end
+
   private
 
   def run_params

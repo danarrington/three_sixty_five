@@ -5,7 +5,7 @@
       p Click on the field you would like to edit.
       table.table.editable.table-striped
         -@runs.each do |run|
-          tr
+          tr data-run-id="#{run.id}"
             td 
               =link_to run.run_date.strftime('%-m/%-d'), '#', 
                 data: {type:'date', resource:'run', name: 'run_date',
@@ -23,6 +23,10 @@
                 name: 'distance', url: run_path(run),
                 inputclass:'input-sm input-tiny'}, 
                 class: 'editable-left'
+            td
+              a href='#' data-toggle='confirmation' data={placement:'left',
+              href:run_path(run)}
+                i.glyphicon.glyphicon-remove
       .center-text
         = paginate @runs, window: 7
       a.btn.btn-lg.btn-block.btn-primary href="#{root_path}" Done

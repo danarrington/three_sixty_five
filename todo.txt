@@ -14,3 +14,9 @@ x Recent activity needs to have time, not just date
 x Delete a run
   x Updates total distance
 
+New Feature
+- Create feature migration/class
+  - Name, text
+  - MessageDisplayer
+    - Should we show message?
+

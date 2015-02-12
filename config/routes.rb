@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :feature_announcments
+
   resources :seasons
 
   resources :runs

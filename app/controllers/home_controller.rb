@@ -14,6 +14,8 @@ class HomeController < ApplicationController
     @user_recent_activity = RecentActivity.new(@user)
     @all_recent_activity = RecentActivity.new()
     @leaderboard = Leaderboard.new(:total)
+
+    @announcement = Announcement.for_user(current_user)
   end
 
   def leaderboard

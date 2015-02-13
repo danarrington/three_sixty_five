@@ -1,4 +1,8 @@
 .container
+  -if @announcement
+    .alert.alert-success.alert-dismissible
+      button.close data-dismiss="alert" x
+      = @announcement.text
   .row
     .col-md-6.col-xs-12.run-data-container
       .row

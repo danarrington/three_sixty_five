@@ -1,29 +1,29 @@
 .container
-  -if @announcement
+  -if @model.announcement
     .alert.alert-success.alert-dismissible
       button.close data-dismiss="alert" x
-      = @announcement.text
+      = @model.announcement.text
   .row
     .col-md-6.col-xs-12.run-data-container
       .row
         .total-distance.col-xs-8.col-xs-offset-2
-          h2.underlined = @user.total_distance
+          h2.underlined = @model.user.total_distance
           p mi. completed
       .row.row-eq-height
         .run-third-box.col-xs-4
-          h3.underlined = @runs
+          h3.underlined = @model.run_count
           p runs
         .run-third-box.col-xs-4
-          h3.underlined = @needed_pace
+          h3.underlined = @model.needed_pace
           p miles/day needed
         .run-third-box.col-xs-4
-          h3.underlined = @day
+          h3.underlined = @model.day
           p day
       .row
         .col-xs-12.col-md-8.col-md-offset-2
           a.btn.btn-lg.btn-block.btn-default.js-log-a-run href='#' Log your miles
           span.collapse.js-submit-run-container
-            =form_for @run do |f|
+            =form_for @model.run do |f|
               div.distance-padding
                 = f.number_field :distance, class: 'form-control input-lg js-distance distance', step:0.01
               div.distance-padding
@@ -34,7 +34,7 @@
       .row
         .visible-xs-block.clearfix style='padding-top:20px;'
     .col-md-6.col-xs-12.dashboard-container.leaderboard
-      =render partial: 'leaderboard'
+      =render partial: 'leaderboard', locals: {leaderboard: @model.leaderboard}
   .row
     .invisible-xs-block.clearfix style='padding-top:20px;'
   .row
@@ -45,10 +45,10 @@
         =link_to 'Edit', runs_path, class: 'btn btn-default'
       .clearfix
       .user-recent-activity-results
-        =render @user_recent_activity
+        =render @model.user_recent_activity
     .col-md-6.col-xs-12.dashboard-container.all-recent-activity
       .pull-left
         h4 All Recent Activity
       .clearfix
       .all-recent-activity-results
-        =render @all_recent_activity
+        =render @model.all_recent_activity

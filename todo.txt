@@ -1,3 +1,18 @@
+Refactoring
+  HomeController.index
+    user
+    run data
+      run count
+      day
+      needed_pace
+    new run
+    all user recent activity
+    current user recent activity
+    leaderboard
+    announcement
+
+
+
 Editable Data
 x Edit a date
 x date migration

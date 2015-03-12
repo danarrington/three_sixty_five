@@ -3,19 +3,7 @@ class HomeController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    #TODO test these also
-    @user = current_user
-    @runs = Run.where(user: @user).count
-    @day = Date.today.yday
-    #TODO account for leap years, write a test for this math
-    @needed_pace = ((365 - @user.total_distance) / (365-@day)).round(2)
-    @run = Run.new
-
-    @user_recent_activity = RecentActivity.new(@user)
-    @all_recent_activity = RecentActivity.new()
-    @leaderboard = Leaderboard.new(:total)
-
-    @announcement = Announcement.for_user(current_user)
+    @model = HomeIndex.new(current_user)
   end
 
   def leaderboard

@@ -1,0 +1,26 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      h2.text-center Start #{@new_year} Season?
+      p <b>#{@user_count}</b> people logged <b>#{@run_count}</b> workouts in 
+        #{@current_year}.  That's pretty great!  Well, I actually don't know if 
+        it's great.  This is an automatically generated message.  I'd still say 
+        it was great if both those numbers were zero.
+      p Is it time to start #{@new_year}? Here is what will happen when you press
+        The Button.  <b>No run data will be modified, however we will set everyone's
+        Total Distance to 0</b>. We'll create a new 'Season' and all new runs will 
+        count towards that.  You should probably only be here if it's New Years
+        Eve or New Years Day.
+      p Only people who have logged a run in the current season show up on the
+        stat page, where you'll be redirected once the new season starts.  
+        Do not freak out that no one is listed.  All the data is still there.
+      br
+      br
+      br
+      br
+  .row
+    .col-md-6.col-md-offset-3
+      = link_to "Begin #{@new_year} Season", execute_restart_path,
+        data: {confirm: 'Are you sure?'}, method: :post, 
+        class: 'btn btn-lg btn-block btn-danger'
+

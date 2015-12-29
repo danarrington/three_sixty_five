@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get '/get_recent_activity' => 'home#recent_activity', :as => :recent_activity
 
   get '/about' => 'visitors#about', :as => :about
-  get '/admin/stats' => 'admin#stats', :as => :stats
+  get '/admin/stats' => 'admin#stats', as: :stats
+  get '/admin/restart' => 'admin#restart', as:  :restart
+  post '/admin/restart' => 'admin#execute_restart', as: :execute_restart
 
   root to: 'visitors#index'
 

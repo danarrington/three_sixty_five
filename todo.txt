@@ -1,3 +1,6 @@
+Bugs
+- Run.season should not allow nil (almost ran into a lot of trouble startin 2016)
+
 Refactoring
   HomeController.index
     user
@@ -12,9 +15,12 @@ Refactoring
     announcement
 
 2016
-- Backup
-- Ship Refactoring
-- Dynamic lazy season creatio 
+x Backup
+x Ship Refactoring
+x What to do with total_distance
+  x New admin/restart route/action/view
+  x It creates a new year
+  x It zeros all total_distances
 
 
 

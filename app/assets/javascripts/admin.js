@@ -26,6 +26,10 @@ $(document).ready(function(){
         .startOf('week').format(FORMAT));
       $('#admin_filter_to').val(moment().subtract(1, 'week').endOf('week')
         .add(1, 'day').format(FORMAT));
+    } else if (val == 'ty') {
+      $('#admin_filter_from').val(moment().startOf('year').format(FORMAT));
+      $('#admin_filter_to').val(moment().add(1, 'day')
+        .format(FORMAT));
     }
   }
   

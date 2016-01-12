@@ -33,6 +33,10 @@ class AdminController < ApplicationController
   def filter_params
     if params[:admin_filter]
       params.require(:admin_filter).permit(:type, :from, :to)
+    else
+      {
+        from: "#{Date.today.year}-01-01"
+      }
     end
   end
 end
